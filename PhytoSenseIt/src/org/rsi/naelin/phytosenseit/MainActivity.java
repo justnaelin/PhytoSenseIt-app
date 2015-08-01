@@ -1,5 +1,8 @@
 package org.rsi.naelin.phytosenseit;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +19,7 @@ import org.opencv.core.Core.MinMaxLocResult;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
+import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.imgcodecs.*;
@@ -124,6 +128,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 				handler.postDelayed(new Runnable() {
 					@Override
 					public void run() {
+						mOpenCvCameraView.setVisibility(SurfaceView.GONE);
 						phytoSenseIt();
 						// Sets 'Take Photo' Button Invisibile 
 						//mTakePhotoButton.setVisibility(Button.GONE);
@@ -258,12 +263,12 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 		Log.i("takePicture", mPhotoFilename);
 
 	}
-
+	
+	
 	public void phytoSenseIt() {
-		Mat mImgMat = Imgcodecs.imread(mPhotoFilename);
+		mImgMat = new Mat();
+		mImgMat = Imgcodecs.imread(mPhotoFilename);
 		
-		Log.d("run", "mImgMat depth: " + mImgMat.depth());
-		Log.d("run", "mImgMat size: " + mImgMat.height());
 		getTemplates();
 		mOpenCvCameraView.setVisibility(SurfaceView.GONE);
 		determinePossibleDisease();
@@ -279,6 +284,15 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 		Log.d("templateMatching", "mResultsMat depth: " + mResultMat.depth());
 		Log.d("templateMatching", "imgMat size: " + imgMat.size());
 		Log.d("templateMatching", "templMat Dims: " + templMat.dims());
+
+		//templMat.convertTo(templMat, CvType.CV_32FC1);
+		Log.i("TEST", "templMat type= " + templMat.type());
+		//imgMat.convertTo(imgMat, CvType.CV_32FC1);
+		Log.i("TEST", "imgMat type= " + imgMat.type());
+		//mResultMat.convertTo(mResultMat, CvType.CV_32FC1);
+		Log.i("TEST", "mResultMat type= " + mResultMat.type());
+
+
 
 
 		// Apply template to mat image
@@ -400,9 +414,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 				maxIndex = j;
 		}
 
-		// Close camera view
-		mOpenCvCameraView.setVisibility(SurfaceView.GONE);
-
 		if (maxIndex >= 0 && maxIndex <= 2) {
 			String diseaseName = "black scurf";
 			Log.d("DISEASE DETECTED", mImageNameTag + " Index " + maxIndex
@@ -472,7 +483,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 		}
 
 		// Run through healthy template
-		templName = "potato_healthy_";
+		templName = "potato_healthy_templ_";
 		mTemplNameTag = templName;
 		imgNum = 1;
 		mTemplNumTag = imgNum;
@@ -484,6 +495,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 		mTemplBmp = BitmapFactory.decodeResource(getResources(), idName);
 		Log.d("getTemplates", templName + Integer.toString(imgNum));
 		setupMatObjectsTempl();
+
 		extractSaturationChannelTempl();
 		templateMatching(mImgMatSat, mTemplMatSat);
 
@@ -522,13 +534,17 @@ public class MainActivity extends Activity implements CvCameraViewListener2,
 		mTemplMat = new Mat();
 		Log.d("setupMatObjectsTempl", "Created mat object for template");
 
+		// Convert bitmap template to OpenCV mat
+		Utils.bitmapToMat(mTemplBmp, mTemplMat);
+		Imgproc.cvtColor(mTemplMat, mTemplMat,Imgproc.COLOR_BGRA2BGR);
+		
 		// Create new mat object for results matrix
 		int resultCols = mImgMat.cols() - mTemplMat.cols() + 1;
 		int resultRows = mImgMat.rows() - mTemplMat.rows() + 1;
-		mResultMat = new Mat(resultRows, resultCols, CvType.CV_32F);
+		mResultMat = new Mat(resultRows, resultCols, CvType.CV_32FC1);
+		Log.i("TEST", "mResultMat type= " + mResultMat.type());
 
-		// Convert bitmap template to OpenCV mat
-		Utils.bitmapToMat(mTemplBmp, mTemplMat);
+
 		Log.d("setupMatObjectsTempl", "Converted template bitmap to OpenCV mat");
 
 	}

@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="It appears that no diseases were detected. If you still believe your potato has a disease, try to take the potato again, making sure that you follow the tips before taking a picture of your produce."
+        android:text="It appears that no diseases were detected. If you still believe your potato has a disease, try to take the photo again, making sure that you follow the tips before taking a picture of your produce."
         android:layout_weight="1"
         android:textSize="16sp"
         android:textColor="#424242"/>

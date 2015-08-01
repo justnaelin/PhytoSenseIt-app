@@ -12,7 +12,7 @@ public class NoResultsActivity extends Activity {
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_results);
+		setContentView(R.layout.activity_no_results);
 		
 		mReturnHomeButton = (Button) findViewById(R.id.return_home);
 		mReturnHomeButton.setOnClickListener(new View.OnClickListener() {
