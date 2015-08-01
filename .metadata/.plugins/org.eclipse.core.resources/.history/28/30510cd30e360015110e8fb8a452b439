@@ -1,0 +1,5 @@
+package org.rsi.naelin.phytosenseit;
+
+public class NoResults {
+
+}

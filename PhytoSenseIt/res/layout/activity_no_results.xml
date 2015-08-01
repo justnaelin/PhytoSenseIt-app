@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:text="no disease detected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:textColor="#212121"
+        android:gravity="center_horizontal"/>
+
+    <!-- Line underneath headline -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <!-- Change as needed. This is just a placeholder so you
+            can see what the layout will look like. -->
+    <ImageView
+        android:src="@drawable/no_results"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="It appears that no diseases were detected. If you still believe your potato has a disease, try to take the potato again, making sure that you follow the tips before taking a picture of your produce."
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="#424242"/>
+
+
+    <Button
+        android:id="@+id/return_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to Home"
+        android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>

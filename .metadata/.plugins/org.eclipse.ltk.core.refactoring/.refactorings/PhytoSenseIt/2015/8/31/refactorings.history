@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;org.rsi.naelin.phytosenseit.MainActivity.run()&apos; to &apos;phytoSenseIt&apos;&#x0A;- Original project: &apos;PhytoSenseIt&apos;&#x0A;- Original element: &apos;org.rsi.naelin.phytosenseit.MainActivity.run()&apos;&#x0A;- Renamed element: &apos;org.rsi.naelin.phytosenseit.MainActivity.phytoSenseIt()&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;run&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;org.rsi.naelin.phytosenseit{MainActivity.java[MainActivity~run" name="phytoSenseIt" references="true" stamp="1438409989760" version="1.0"/>
+</session>

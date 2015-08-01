@@ -1,0 +1,14 @@
+package org.rsi.naelin.phytosenseit;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class NoResultsActivity extends Activity {
+	
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+	}
+
+}

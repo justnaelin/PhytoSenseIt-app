@@ -1,0 +1,27 @@
+package org.rsi.naelin.phytosenseit;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class ResultsActivity extends Activity {
+	private TextView mHeaderText;
+	private ImageView mResultsImage;
+
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_results);
+	
+		String passedArg = getIntent().getExtras().getString("results header");
+		mHeaderText = (TextView) findViewById(R.id.header_text);
+		mHeaderText.setText(passedArg);
+		
+		if(passedArg == "black scurf") {
+			mResultsImage = (ImageView) findViewById(R.id.results_image); 
+		}
+
+	}
+
+}

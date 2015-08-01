@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#212121"
+        android:textSize="45sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="8dp"
+        android:text="(disease detected)"
+        android:textColor="#424242"
+        android:textSize="20sp" />
+
+    <!-- Line underneath headline -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <!--
+         Change as needed. This is just a placeholder so you
+            can see what the layout will look like.
+    -->
+
+    <ImageView
+        android:id="@+id/results_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="This is where you will write in the description of the disease. As the description reaches the end of the page, add a (...) at the end of the cut-off paragraph, so the user to click the READ MORE button. Once they click the button, then you will provide the entire description and enclose it in a ScrollView tag. Don&apos;t use ScrollView here, since it&apos;s just a small amount of text..."
+        android:textColor="#424242"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_gravity="center"
+         >
+
+        <Button
+            android:id="@+id/return_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Return to Home" />
+
+        <Button
+            android:id="@+id/read_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Read More" />
+    </LinearLayout>
+
+</LinearLayout>

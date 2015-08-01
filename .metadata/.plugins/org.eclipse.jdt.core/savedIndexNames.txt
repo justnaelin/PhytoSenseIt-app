@@ -1,0 +1,6 @@
+INDEX VERSION 1.127+/Users/naelinaquino/Projects/PhytoSenseIt_App/PhytoSenseIt-app/.metadata/.plugins/org.eclipse.jdt.core
+1270315800.index
+2732638570.index
+675265268.index
+2591215801.index
+3465386128.index

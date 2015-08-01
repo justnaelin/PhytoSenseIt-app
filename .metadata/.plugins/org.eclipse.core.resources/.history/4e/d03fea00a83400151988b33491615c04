@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+
+    <TextView
+        android:text="gangrene"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:textColor="#212121"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:text="(disease detected)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#424242"
+        android:paddingBottom="8dp"/>
+
+    <!-- Line underneath headline -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <!-- Change as needed. This is just a placeholder so you
+            can see what the layout will look like. -->
+    <ImageView
+        android:src="@drawable/gangrene"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="1"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="This is where you will write in the description of the disease. As the description reaches the end of the page, add a (...) at the end of the cut-off paragraph, so the user to click the READ MORE button. Once they click the button, then you will provide the entire description and enclose it in a ScrollView tag. Don't use ScrollView here, since it's just a small amount of text..."
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="#424242"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read More"
+        android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+
